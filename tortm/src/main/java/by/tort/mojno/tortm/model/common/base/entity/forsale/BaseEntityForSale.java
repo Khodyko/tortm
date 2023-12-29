@@ -1,8 +1,10 @@
 package by.tort.mojno.tortm.model.common.base.entity.forsale;
 
+import by.tort.mojno.tortm.model.common.CostMeasurement;
 import by.tort.mojno.tortm.model.common.CostMeasurementEnum;
 import by.tort.mojno.tortm.model.common.PersistantObject;
 import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,21 +16,23 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-abstract class BaseEntityForSale extends PersistantObject<Long> {
+public abstract class BaseEntityForSale extends PersistantObject<Long> {
 
     @Column
-    String name;
+    private String name;
 
     @Column
-    String description;
+    private String description;
+
+    @ManyToOne
+    private final CostMeasurement costMeasurement= new CostMeasurement(CostMeasurementEnum.WEIGHT);
 
     @Column
-    CostMeasurementEnum costMeasurement;
+    private Long costPerMeasureCoins;
 
     @Column
-    Long costPerMeasureCoins;
+    private String imgHref;
 
-    @Column
-    String imgHref;
+
 
 }

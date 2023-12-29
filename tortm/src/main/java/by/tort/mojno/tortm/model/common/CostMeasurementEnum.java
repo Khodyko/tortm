@@ -2,16 +2,31 @@ package by.tort.mojno.tortm.model.common;
 
 public enum CostMeasurementEnum {
 
-    WEIGHT((byte) 1, "Продается по весу"),
-    COUNT((byte) 2, "Продается поштучно"),
-    WEIGHT_OF_PARENT((byte)3, "Продается по весу родителя.");
+    WEIGHT((byte) 1, "WEIGHT"),
+    COUNT((byte) 2, "COUNT"),
+    WEIGHT_OF_PARENT((byte)3, "WEIGHT_OF_PARENT");
 
-    CostMeasurementEnum(Byte id, String description) {
+    CostMeasurementEnum(Byte id, String name) {
         this.id = id;
-        this.description = description;
+        this.name = name;
     }
 
     Byte id;
-    String description;
+    String name;
 
+    public Byte getId() {
+        return id;
+    }
+
+    public void setId(Byte id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

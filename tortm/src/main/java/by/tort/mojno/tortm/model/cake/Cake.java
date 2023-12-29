@@ -1,6 +1,6 @@
 package by.tort.mojno.tortm.model.cake;
 
-import by.tort.mojno.tortm.model.common.base.entity.forsale.BaseEntityForSaleByWeight;
+import by.tort.mojno.tortm.model.common.base.entity.forsale.BaseEntityForSale;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Cake extends BaseEntityForSaleByWeight {
+public class Cake extends BaseEntityForSale {
 
     @ManyToMany(mappedBy = "cakes")
     private List<Cream> creams = new ArrayList<>();

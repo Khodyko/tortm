@@ -1,10 +1,9 @@
 package by.tort.mojno.tortm.model.cake;
 
-import by.tort.mojno.tortm.model.common.base.entity.forsale.BaseEntityForSaleByParentWeight;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import by.tort.mojno.tortm.model.common.CostMeasurement;
+import by.tort.mojno.tortm.model.common.CostMeasurementEnum;
+import by.tort.mojno.tortm.model.common.base.entity.forsale.BaseEntityForSale;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,7 +15,10 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class Cream extends BaseEntityForSaleByParentWeight {
+public class Cream extends BaseEntityForSale {
+
+    @ManyToOne
+    private final CostMeasurement costMeasurement= new CostMeasurement(CostMeasurementEnum.WEIGHT_OF_PARENT);
 
     @ManyToMany
     @JoinTable(name = "cake_cream",
