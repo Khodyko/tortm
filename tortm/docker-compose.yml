@@ -1,0 +1,30 @@
+version: '0.1.1'
+services:
+  client-backend:
+    image: client:0.1.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8981:8981"
+    depends_on:
+      - service-db
+    environment:
+      - SERVER_PORT= 8981
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://service-db/tortm
+
+  service-db:
+    image: postgres:14.7-alpine
+    environment:
+      POSTGRES_USER: tortm
+      POSTGRES_PASSWORD: tortm
+    ports:
+      - "15432:5432"
+    volumes:
+      - ./src/main/resources/script/create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+      - db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  pgadmin-data:
