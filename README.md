@@ -37,6 +37,7 @@
 * #spring.datasource.url= jdbc:postgresql://localhost:5432/postgres 
 * это раскомментируйте
 * datasource.url= jdbc:postgresql://localhost:15432/postgres
+
 Из корня проекта (там где docker-compose) запустите команду:
 docker-compose up
 
