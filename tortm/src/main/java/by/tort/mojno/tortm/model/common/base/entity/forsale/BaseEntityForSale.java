@@ -24,8 +24,8 @@ public abstract class BaseEntityForSale extends PersistantObject<Long> {
     @Column
     private String description;
 
-    @ManyToOne
-    private final CostMeasurement costMeasurement= new CostMeasurement(CostMeasurementEnum.WEIGHT);
+    @Column(nullable = false)
+    private CostMeasurementEnum costMeasurement;
 
     @Column
     private Long costPerMeasureCoins;

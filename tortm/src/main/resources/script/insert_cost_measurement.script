@@ -1,3 +1,0 @@
-INSERT INTO cost_measurement(pid, name) VALUES (1, 'WEIGHT');
-INSERT INTO cost_measurement(pid, name) VALUES (2, 'COUNT');
-INSERT INTO cost_measurement(pid, name) VALUES (3, 'WEIGHT_OF_PARENT')

@@ -9,7 +9,6 @@ import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 import org.hibernate.Session;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +29,12 @@ public class CreamServiceImpl implements CreamService {
         Root<Cream> variableRoot = cr.from(Cream.class);
         cr.select(variableRoot);
         return session.createQuery(cr).getResultList();
+    }
+
+    @Override
+    public void addCream(Cream cream){
+        Session session = entityManager.unwrap(Session.class);
+        session.persist(cream);
     }
 
 }

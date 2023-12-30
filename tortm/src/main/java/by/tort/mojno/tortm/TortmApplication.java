@@ -48,11 +48,4 @@ public class TortmApplication extends SpringBootServletInitializer implements We
         return new DispatcherServletRegistrationBean(dispatcherServlet(), "/");
     }
 
-//    @Bean
-//    public SessionFactory sessionFactory(@Autowired EntityManager e) {
-//        if (e.unwrap(SessionFactory.class) == null) {
-//            throw new NullPointerException("factory is not a hibernate factory");
-//        }
-//        return e.unwrap(SessionFactory.class);
-//    }
 }

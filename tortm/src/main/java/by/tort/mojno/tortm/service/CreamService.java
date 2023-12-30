@@ -6,4 +6,7 @@ import java.util.List;
 
 public interface CreamService {
     List<Cream> getAllCreams();
+
+
+    void addCream(Cream cream);
 }

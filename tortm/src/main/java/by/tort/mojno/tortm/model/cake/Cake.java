@@ -15,20 +15,29 @@ import java.util.List;
 @Entity
 public class Cake extends BaseEntityForSale {
 
-    @ManyToMany(mappedBy = "cakes")
+    @ManyToMany
+    @JoinTable(name = "def_cream_pid",
+            joinColumns = {@JoinColumn(name = "cream_pid", referencedColumnName = "pid")},
+            inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Cream> creams = new ArrayList<>();
 
 
-    @ManyToMany(mappedBy = "cakes")
+    @ManyToMany
+    @JoinTable(name = "def_filling_pid",
+            joinColumns = {@JoinColumn(name = "filling_pid", referencedColumnName = "pid")},
+            inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Filling> fillings = new ArrayList<>();
 
 
-    @ManyToMany(mappedBy = "cakes")
+    @ManyToMany
+    @JoinTable(name = "def_decor_pid",
+            joinColumns = {@JoinColumn(name = "decor_pid", referencedColumnName = "pid")},
+            inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Decor> decors = new ArrayList<>();
 
-
-    @Column
-    private Boolean isHeight;
+// fixme set to CakeOrder Entity
+//    @Column
+//    private Boolean isHeight;
 
     @ManyToOne
     @JoinColumn(name = "def_cream_pid", nullable = false)
