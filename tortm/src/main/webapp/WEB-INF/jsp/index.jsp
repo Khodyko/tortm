@@ -9,18 +9,21 @@
     <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet"/>
     <link rel="icon" type="image/x-icon" href="img/common/cake-favicon.png"/>
     <style>
-        <%@include file="/WEB-INF/css/common.css"%>
-        <%@include file="/WEB-INF/css/main.css"%>
-        <%@include file="/WEB-INF/css/header.css"%>
-        <%@include file="/WEB-INF/css/footer.css"%>
+        <%@include file="/css/common.css"%>
+        <%@include file="/css/main.css"%>
+        <%@include file="/css/header.css"%>
+        <%@include file="/css/footer.css"%>
+        <%@include file="/css/menu.css"%>
     </style>
-    <script type="text/javascript">
-        <%@include file="/WEB-INF/js/common/header.js"%>
-        <%@include file="/WEB-INF/js/main/main.js"%>
+    <script src="${pageContext.request.contextPath}/js/menu/menu-tabs.js"></script>
+    <script src="${pageContext.request.contextPath}/js/menu/products.js"></script>
+        <script type="text/javascript">
+
+        <%@include file="/js/main/main.js"%>
+<%--        <%@include file="/js/menu/menu-tabs.js"%>--%>
+<%--        <%@include file="/js/menu/products.js"%>--%>
         window.onload = function () {
-            setHeaderListeners();
-            setSliderListeners();
-            autoSlide();
+            showCards();
         };
     </script>
 </head>
@@ -56,73 +59,7 @@
                         </div>
                     </div>
                 </div>
-<%--                <div class="menu-link-big-container">--%>
-<%--                    <a--%>
-<%--                            class="menu-link-small-container hoverable"--%>
-<%--                            href="menu.html">--%>
-<%--                        <div class="text-dark">Menu</div>--%>
-<%--                        <div>--%>
-<%--                            <img--%>
-<%--                                    alt="coffee-cup"--%>
-<%--                                    style="height: 20px; width: 20px"--%>
-<%--                                    src="img/main-page/coffee-cup.svg"--%>
-<%--                            />--%>
-<%--                        </div>--%>
-<%--                    </a>--%>
-<%--                    <button id="burgerBtn" class="burger-btn">--%>
-<%--                <span id="burger-lines" class="burger-lines">--%>
-<%--                </span>--%>
-<%--                        <img id="burger-btn-cross" class="burger-btn-cross"--%>
-<%--                             alt="cross"--%>
-<%--                             style="height: 16px; width: 16px"--%>
-<%--                             src="img/common/cross.png"--%>
-<%--                        />--%>
-<%--                    </button>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-    </section>
-    <section id="burger-menu" class="burger-menu">
-        <h2 style="display: none">Only for task</h2>
-        <div class="burger-menu-container">
-            <div class="burger-menu-links1">
-                <div class="burger-links-item">
-                    <a
-                            href="index.html#Favorite%20coffee"
-                            class="burger-links-link"
-                    >Favorite coffee</a
-                    >
-                </div>
-                <div class="burger-links-item burger-closer">
-                    <a href="index.html#About" class="header-links-link">About</a>
-                </div>
-                <div class="burger-links-item burger-closer">
-                    <a href="index.html#Mobile%20app" class="header-links-link"
-                    >Mobile app</a
-                    >
-                </div>
-                <div class="burger-links-item burger-closer">
-                    <a href="index.html#Contact%20us" class="header-links-link"
-                    >Contact us</a
-                    >
-                </div>
             </div>
-
-            <div class="burger-menu-links2">
-                <a
-                        class="burger-links-item burger-closer"
-                        href="menu.html">
-                    <div class="text-dark">Menu</div>
-                    <div>
-                        <img
-                                alt="coffee-cup"
-                                style="height: 20px; width: 20px"
-                                src="img/main-page/coffee-cup.svg"
-                        />
-                    </div>
-                </a>
-            </div>
-        </div>
         </div>
     </section>
 </header>
@@ -157,7 +94,24 @@
 
         </div>
     </section>
-
+    <section id="Menu" class="menu">
+        <h2 style="display: none">Only for task</h2>
+        <div class="wrapper menu">
+            <div class="menu-title title-font text-dark">
+                Каждый торт скрывает
+                <span class="text-accent" style="font-style: italic">
+              чудесный вкус
+            </span>
+            </div>
+            <!-- fulfill from js -->
+            <div id="menu-cards-container"></div>
+            <div id="refresh-btn-container" class="refresh-btn-container">
+                <button id="refresh-btn" class="refresh-btn small-round">
+                    <img alt="refresh" src="img/menu/refresh.svg">
+                </button>
+            </div>
+        </div>
+    </section>
 </main>
 <footer>
     <section id="Contact%20us" class="footer">

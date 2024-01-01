@@ -2,7 +2,7 @@ let isWindowRefreshed = false;
 const COUNT_CARDS_MORE_768_PX = 32;
 const COUNT_CARDS_LESS_768_PX = 4;
 let defaultCardsCount = COUNT_CARDS_MORE_768_PX;
-let currentTab= "coffee";
+let currentTab= "dessert";
 
 
 function clearCardContainer(container) {
@@ -56,7 +56,7 @@ function createNewCardInContainer(card, cardsContainer, isShow) {
                         <div class="menu-card-text-container">
                             <div class="menu-card-title">${card.name}</div>
                         <div class="menu-card-description">${card.description}</div>
-                        <div class="menu-card-cost">${card.price}$</div>
+                        <div class="menu-card-cost">${card.price} бел.руб.</div>
                         </div>
                 </div>
         `;
@@ -84,39 +84,41 @@ refreshBtn.addEventListener("click", function(){
 });
 
 
-  let coffeeBtn= document.getElementById("coffee-tab-btn");
-  let teaBtn= document.getElementById("tea-tab-btn");
-  let desertBtn= document.getElementById("dessert-tab-btn");
-  coffeeBtn.addEventListener("click", function(){
-    if(currentTab!="coffee"){
-      clearTabsBtn();
-      chooseTabBtn(coffeeBtn);
-      showCards("coffee")
-    }
-  });
-  teaBtn.addEventListener("click", function(){
-    if(currentTab!="tea"){
-      clearTabsBtn();
-      chooseTabBtn(teaBtn);
-      showCards("tea")
-    }
-  });
-  desertBtn.addEventListener("click", function(){
-    if(currentTab!="dessert"){
-      clearTabsBtn();
-      chooseTabBtn(desertBtn);
-      showCards("dessert");
-    }
-  });
+//   let coffeeBtn= document.getElementById("coffee-tab-btn");
+//   let teaBtn= document.getElementById("tea-tab-btn");
+//   let desertBtn= document.getElementById("dessert-tab-btn");
+//   coffeeBtn.addEventListener("click", function(){
+//     if(currentTab!="coffee"){
+//       clearTabsBtn();
+//       chooseTabBtn(coffeeBtn);
+//       showCards("coffee")
+//     }
+//   });
+//   teaBtn.addEventListener("click", function(){
+//     if(currentTab!="tea"){
+//       clearTabsBtn();
+//       chooseTabBtn(teaBtn);
+//       showCards("tea")
+//     }
+//   });
+//   desertBtn.addEventListener("click", function(){
+//     if(currentTab!="dessert"){
+//       clearTabsBtn();
+//       chooseTabBtn(desertBtn);
+//       showCards("dessert");
+//     }
+//   });
 }
 
-function clearTabsBtn(){
-  let tabs=document.getElementsByClassName("menu-tab-black");
-  Array.from(tabs).forEach((element) => {element.classList.remove("menu-tab-black");
-  element.classList.add("menu-tab");
-});
-}
+// function clearTabsBtn(){
+//   let tabs=document.getElementsByClassName("menu-tab-black");
+//   Array.from(tabs).forEach((element) => {element.classList.remove("menu-tab-black");
+//   element.classList.add("menu-tab");
+// });
+// }
 
-function chooseTabBtn(btn){
-  btn.classList.add("menu-tab-black");
-}
+// function chooseTabBtn(btn){
+//   btn.classList.add("menu-tab-black");
+// }
+
+

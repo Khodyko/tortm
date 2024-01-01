@@ -1,7 +1,7 @@
 /* banner */
 
 .coffee-banner-content {
-   background: url("../../img/main-page/banner.png"),
+   background: url("../img/main-page/banner.png"),
     lightgray 50% / cover no-repeat;
   max-width: 1440px;
   /* background-repeat: no-repeat;

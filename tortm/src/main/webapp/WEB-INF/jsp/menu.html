@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>coffee-house</title>
   <link rel="stylesheet" href="css/common.css" />
-  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/menu.css" />
   <link rel="stylesheet" href="css/header.css" />
   <link rel="stylesheet" href="css/footer.css" />
+  <script src="js/menu/menu-tabs.js"></script>
+  <script src="js/menu/products.js"></script>
   <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="img/common/coffee-ico.png" />
   <script src="js/common/header.js"></script>
-  <script src="js/main/main.js"></script>
   <script>
-
     window.onload = function () {
       setHeaderListeners();
-      setSliderListeners();
-      autoSlide();
+      setListeners();
+      showCards();
     };
   </script>
 </head>
@@ -28,8 +28,10 @@
     <h1 style="display: none">Only for task</h1>
     <div class="wrapper">
       <div class="header-content">
-        <div class="logo-container burger-closer">
-          <img alt="logo" src="img/main-page/logo.svg" />
+        <div class="logo-container">
+          <a href="index.html">
+            <img alt="logo" src="img/main-page/logo.svg" />
+          </a>
         </div>
         <div class="header-links-container">
           <div class="header-links">
@@ -48,7 +50,7 @@
               >
             </div>
             <div class="header-links-item hoverable">
-              <a href="index.html#Contact%20us" class="header-links-link"
+              <a href="menu.html#Contact%20us" class="header-links-link"
               >Contact us</a
               >
             </div>
@@ -56,8 +58,10 @@
         </div>
         <div class="menu-link-big-container">
           <a
-                  class="menu-link-small-container hoverable"
-                  href="menu.html">
+                  class="menu-link-small-container"
+                  style="pointer-events: none"
+                  href="#"
+          >
             <div class="text-dark">Menu</div>
             <div>
               <img
@@ -100,7 +104,7 @@
           >
         </div>
         <div class="burger-links-item burger-closer">
-          <a href="index.html#Contact%20us" class="header-links-link"
+          <a href="menu.html#Contact%20us" class="header-links-link"
           >Contact us</a
           >
         </div>
@@ -124,228 +128,56 @@
   </section>
 </header>
 <main>
-  <section id="Enjoy" class="coffee-banner" onclick="window.open('menu.html', '_self')">
+  <section id="Menu" class="menu">
     <h2 style="display: none">Only for task</h2>
-    <div class="wrapper">
-      <div class="coffee-banner-content">
-
-        <video preload="auto" loop="loop" autoplay muted class="banner-video">
-          <source src="./video/video (2160p).mp4" type="video/mp4">
-
-
-        </video>
-        <div class="coffee-banner-info">
-          <div>
-                <span class="coffee-banner-title text-light">
-                  <span
-                          class="inherit-font text-accent"
-                          style="font-style: italic"
-                  >Enjoy</span
-                  >
-                  premium coffee at our charming cafe</span
-                >
-          </div>
-          <div class="coffee-banner-text text-light">
-            With its inviting atmosphere and delicious coffee options, the
-            Coffee House Resource is a popular destination for coffee lovers
-            and those seeking a warm and inviting space to enjoy their
-            favorite beverage.
-          </div>
-          <button class="banner-button text-dark">
-            Menu
+    <div class="wrapper menu">
+      <div class="menu-title title-font text-dark">
+        Каждый торт скрывает
+        <span class="text-accent" style="font-style: italic">
+              неповторимый вкус
+            </span>
+      </div>
+      <div class="tab-buttons-container">
+        <div id="coffee-tab-btn" class="menu-tab-black">
+          <div class="tab-img-container">
             <img
-                    alt="coffee-cup"
-                    class="cup-of-banner"
-                    style="height: 20px; width: 20px; position: relative"
-                    src="img/main-page/coffee-cup.svg"
+                    alt="coffee-menu-logo"
+                    style="height: 19px; width: 19px"
+                    src="img/menu/coffee-menu-logo.png"
             />
-          </button>
+          </div>
+          Coffee
+        </div>
+        <div id="tea-tab-btn" class="menu-tab">
+          <div class="tab-img-container">
+            <img
+                    alt="tea-menu-logo"
+                    style="height: 20px; width: 20px"
+                    src="img/menu/tea-menu-logo.png"
+            />
+          </div>
+          Tea
+        </div>
+        <div id="dessert-tab-btn" class="menu-tab">
+          <div class="tab-img-container">
+            <img
+                    alt="desert-menu-logo"
+                    style="height: 20px; width: 20px"
+                    src="img/menu/desert-menu-logo.png"
+            />
+          </div>
+          Dessert
         </div>
       </div>
+      <!-- fulfill from js -->
+      <div id="menu-cards-container"></div>
+      <div id="refresh-btn-container" class="refresh-btn-container">
+        <button id="refresh-btn" class="refresh-btn small-round">
+          <img alt="refresh" src="img/menu/refresh.svg">
+        </button>
+      </div>
+    </div>
 
-    </div>
-  </section>
-  <section id="Favorite%20coffee" class="slider">
-    <h2 style="display: none">Only for task</h2>
-    <div class="wrapper">
-      <div class="slider-content">
-        <div class="slider-title">
-              <span class="inherit-font text-dark"
-              >Choose your
-                <span
-                        style="font-style: italic"
-                        class="inherit-font text-accent"
-                >favorite</span
-                >
-                coffee</span
-              >
-        </div>
-        <div class="slider-main">
-          <button id="slider-button" class="slider-button">
-            <img alt="arrow-left" src="img/main-page/arrow-left.svg" />
-          </button>
-          <div class="drink-slider-container-super-big">
-            <div id="drink-slider-container-big" class="drink-slider-container-big">
-              <div class="drink-slider-container">
-                <div class="drink-slider-picture1"></div>
-                <div class="drink-slider-name">S’mores Frappuccino</div>
-                <div class="drink-slider-description">
-                  This new drink takes an espresso and mixes it with brown sugar
-                  and cinnamon before being topped with oat milk.
-                </div>
-                <div class="drink-slider-cost">$5.50</div>
-              </div>
-              <div class="drink-slider-container">
-                <div class="drink-slider-picture2"></div>
-                <div class="drink-slider-name">Caramel Macchiato</div>
-                <div class="drink-slider-description">
-                  Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.
-                </div>
-                <div class="drink-slider-cost">$5.00</div>
-              </div>
-              <div class="drink-slider-container">
-                <div class="drink-slider-picture3"></div>
-                <div class="drink-slider-name">Ice coffee</div>
-                <div class="drink-slider-description">
-                  A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.
-                </div>
-                <div class="drink-slider-cost">$4.50</div>
-              </div>
-            </div>
-            <div class="drink-slider-pic-changer">
-              <div id="radio-slider1" class="radio-slider-wrapper-light">
-                <div id="light1" class="light">
-                  <div id="dark1" class="dark"></div>
-                </div>
-              </div>
-              <div id="radio-slider2" class="radio-slider-wrapper-light">
-                <div id="light2" class="light" >
-                  <div id="dark2" class=""></div>
-                </div>
-              </div>
-              <div id="radio-slider3" class="radio-slider-wrapper-light">
-                <div id="light3" class="light">
-                  <div id="dark3" class=""></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-                  id="slider-button-right"
-                  class="slider-button mirror-vertical"
-          >
-            <img alt="arrow-right" src="img/main-page/arrow-left.svg" />
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="About" class="photo">
-    <h2 style="display: none">Only for task</h2>
-    <div class="wrapper">
-      <div class="photo-content">
-        <div class="photo-title text-dark">
-          Resource is
-          <span class="inherit-font text-accent" style="font-style: italic"
-          >the perfect and cozy place</span
-          >
-          where you can enjoy a variety of hot beverages, relax, catch up
-          with friends, or get some work done.
-        </div>
-        <div class="main-main-container">
-          <div class="photo-main-container1">
-            <div class="photo-view-large">
-              <img
-                      alt="about-1" id="about-1"
-                      class="resizable-photo"
-                      src="img/main-page/about-1.png"
-              />
-            </div>
-            <div class="photo-view-short">
-              <img
-                      alt="about-2"
-                      class="resizable-photo"
-                      src="img/main-page/about-2.png"
-              />
-            </div>
-          </div>
-          <div class="photo-main-container2">
-            <div class="photo-view-short">
-              <img
-                      alt="about-3"
-                      class="resizable-photo"
-                      src="img/main-page/about-3.png"
-              />
-            </div>
-            <div class="photo-view-large">
-              <img
-                      alt="about-4"
-                      class="resizable-photo"
-                      src="img/main-page/about-4.png"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="Mobile%20app" class="app-links">
-    <h2 style="display: none">Only for task</h2>
-    <div class="wrapper">
-      <div class="app-links-container">
-        <div class="app-links-text-container">
-          <div class="app-links-title">
-                <span
-                        class="inherit-font text-accent"
-                        style="font-style: italic"
-                >Download</span
-                >
-            our apps to start ordering
-          </div>
-          <div class="app-links-text">
-            Download the Resource app today and experience the comfort of
-            ordering your favorite coffee from wherever you are
-          </div>
-          <div class="app-links-btn-container">
-            <button class="app-links-btn">
-                  <span class="app-btn-img-container">
-                    <img
-                            alt="apple-logo"
-                            class="hover-off"
-                            src="img/main-page/icon-iphone.svg" />
-                    <img
-                            alt="apple-logo"
-                            class="hover-on"
-                            src="img/main-page/icon-iphone-white.svg"
-                    /></span>
-              <span class="btn-text-container">
-                    <span class="btn-top-text">Available on the</span>
-                    <span class="btn-bottom-text">App Store</span>
-                  </span>
-            </button>
-            <button class="app-links-btn">
-                  <span class="app-btn-img-container">
-                    <img
-                            alt="google-play-logo"
-                            class="hover-off"
-                            src="img/main-page/icon-google-play.svg" />
-                    <img
-                            alt="apple-logo"
-                            class="hover-on"
-                            src="img/main-page/icon-google-app-white.svg"
-                    /></span>
-              <span class="btn-text-container">
-                    <span class="btn-top-text">Available on</span>
-                    <span class="btn-bottom-text">Google Play</span>
-                  </span>
-            </button>
-          </div>
-        </div>
-        <div class="app-links-banner">
-          <img alt="phones-banner" class="phones-banner" src="img/main-page/mobile-screens.png">
-        </div>
-      </div>
-    </div>
   </section>
 </main>
 <footer>
@@ -372,14 +204,18 @@
       <div class="footer-contacts-container text-light">
         <div class="footer-contacts-title">Contact us</div>
         <div class="footer-contacts-list">
-          <div style="cursor: pointer;" class="footer-contact hoverable-light transparent-border" onclick="window.open('https://maps.app.goo.gl/BPK74a44BTYMmFZx6')">
+          <div
+                  class="footer-contact hoverable-light transparent-border"
+                  onclick="window.open('https://maps.app.goo.gl/BPK74a44BTYMmFZx6')"
+          >
             <img alt="pin-alt" src="img/main-page/pin-alt.svg" />
             <span>8558 Green Rd., LA</span>
           </div>
           <div class="footer-contact">
             <a
                     class="hoverable-light footer-contact transparent-border"
-                    href="tel:+1%20(603)%20555-0123">
+                    href="tel:+1%20(603)%20555-0123"
+            >
               <img alt="phone" src="img/main-page/phone.svg" />
               <span> +1 (603) 555-0123 </span>
             </a>
