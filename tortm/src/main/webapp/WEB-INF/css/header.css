@@ -1,0 +1,145 @@
+/* header */
+
+.header {
+  height: 60px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.header-menu-container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  height: 60px;
+  width: 100%;
+}
+
+.header-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  padding-bottom: 2px;
+}
+
+.header-content {
+  display: flex;
+}
+
+.header-links {
+  display: flex;
+  gap: 40px;
+}
+
+.menu-link-big-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-link-small-container,
+.header-links-item {
+  display: flex;
+  gap: 8px;
+  justify-content: top;
+  transition: border-bottom 300ms ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  font-feature-settings: "clig" off, "liga" off;
+  color: #403f3d;
+}
+
+.burger-btn {
+  display: none;
+  flex-direction: column;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  border: 1px solid #665f55;
+}
+
+.burger-btn-cross{
+  display: none;
+  transition: opacity 500ms ease-in-out;
+}
+
+ .burger-lines{
+  width: 16px;
+  height: 8.5px;
+  border-top: 1px solid #665f55;
+  border-bottom: 1px solid #665f55;
+  transition: opacity 500ms ease-in-out;
+
+}
+
+.burger-menu{
+  display: flex;
+  position:absolute;
+  left: 3000px;
+  width: 100%;
+  height: 800px;
+  background-color: #e1d4c9;
+  padding: 40px 60px 40px 60px;
+  gap: 100px;
+  z-index:1000;
+  justify-content: center;
+  transition: left 500ms ease-in-out;
+  opacity: 0;
+}
+
+.burger-menu-container{
+  display: flex;
+  justify-content: top;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.burger-menu-links1{
+  display: flex;
+  justify-content: top;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.burger-menu-links2{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.burger-links-item{
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  justify-content:  center;
+  align-items: center;
+  transition: border-bottom 300ms ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  font-feature-settings: "clig" off, "liga" off;
+  color: #403f3d;
+}
+
+@media (max-width: 768px) {
+  .header-links-container {
+    width: auto;
+    flex: auto 0 auto;
+  }
+  .header-links-item {
+    display: none;
+  }
+  .menu-link-small-container {
+    display: none;
+  }
+  .menu-link-big-container {
+    padding-bottom: 5px;
+  }
+  .burger-btn {
+    display: flex;
+  }
+}

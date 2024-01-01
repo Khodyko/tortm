@@ -1,0 +1,147 @@
+/* common */
+
+section {
+  display: block;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.wrapper {
+  display: block;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.inherit-font {
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-style: inherit;
+}
+
+
+
+body {
+  background-color: #e3dcd7;
+  margin: 0;
+  font-size: 16px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  color: #403f3d;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.text-dark {
+  color: #403f3d;
+}
+
+.text-light {
+  color: #e1d4c9;
+}
+
+.text-accent {
+  color: #dbc260;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  transition: border-bottom 500ms ease-in-out;
+}
+
+@media (hover: hover)  {
+  .hoverable:hover {
+    border-bottom: 2px solid #403f3d;
+  }
+
+  .hoverable-light:hover {
+    border-bottom: 2px solid #e1d4c9;
+  }
+}
+
+.footer {
+  margin-bottom: 40px;
+}
+
+.title-font {
+  font-family: Inter;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+button.small-round {
+  border: 1px solid #665f55;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background-color: transparent;
+  transition: background-color 500ms ease-in-out;
+}
+
+button.small-dark-round {
+  border: 1px solid  #e1d4c9;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  background-color: transparent;
+  transition: background-color 500ms ease-in-out;
+}
+
+.resizable-photo {
+  overflow: clip;
+  flex-grow: 1;
+  width: 100%;
+  border-radius: inherit;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 500ms ease-in-out;
+  /* add overflow: hidden; to container! */
+}
+
+@media (hover: hover)  {
+  .resizable-photo:hover {
+    transform: scale(1);
+  }
+}
+.transparent-border {
+  border: 2px solid transparent;
+}
+
+@media (max-width: 718px) {
+  section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
