@@ -1,8 +1,12 @@
 package by.tort.mojno.tortm.controller;
 
 import by.tort.mojno.tortm.model.cake.Cream;
+import by.tort.mojno.tortm.model.cake.response.ResponseCreamDTO;
 import by.tort.mojno.tortm.model.common.CostMeasurementEnum;
 import by.tort.mojno.tortm.service.CreamService;
+import by.tort.mojno.tortm.util.mapper.CreamMapper;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +16,15 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class MainMenuController {
 
 //    Logger logger = (Logger) LoggerFactory.getLogger(MainMenuController.class);
 
-    private final CreamService creamService;
-
-    public MainMenuController(CreamService creamService) {
-        this.creamService = creamService;
-    }
+    @Autowired
+    private CreamMapper creamMapper;
+    @Autowired
+    private CreamService creamService;
 
     //Controller only for check
     @GetMapping
@@ -29,7 +33,8 @@ public class MainMenuController {
         ModelAndView modelAndView = new ModelAndView("index");
         List<Cream> creamList = creamService.getAllCreams();
         if (creamList != null && creamList.size()>0) {
-            System.out.println(creamList.getFirst().getDescription());
+            ResponseCreamDTO responseCreamDTO= creamMapper.convert(creamList.getFirst());
+            System.out.println(responseCreamDTO.getDescription());
         }
         modelAndView.addObject("creams", creamList);
         return modelAndView;

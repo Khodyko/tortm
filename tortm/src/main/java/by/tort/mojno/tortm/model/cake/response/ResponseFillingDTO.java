@@ -1,9 +1,6 @@
-package by.tort.mojno.tortm.model.common.base.entity.forsale;
+package by.tort.mojno.tortm.model.cake.response;
 
 import by.tort.mojno.tortm.model.common.CostMeasurementEnum;
-import by.tort.mojno.tortm.model.common.PersistantObject;
-import jakarta.persistence.Column;
-import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,24 +10,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@MappedSuperclass
-public abstract class BaseEntityForSale extends PersistantObject<Long> {
-
-    @Column
+public class ResponseFillingDTO {
+    private Long pid;
     private String name;
-
-    @Column
     private String description;
-
-    @Column(nullable = false)
     private CostMeasurementEnum costMeasurement;
-
-    @Column
     private Long costPerMeasureCoins;
-
-    @Column
     private String imgHref;
-
-
-
 }

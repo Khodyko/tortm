@@ -15,15 +15,13 @@
         <%@include file="/css/footer.css"%>
         <%@include file="/css/menu.css"%>
     </style>
-    <script src="${pageContext.request.contextPath}/js/menu/menu-tabs.js"></script>
+    <script src="${pageContext.request.contextPath}/js/main/sale-cards.js"></script>
     <script src="${pageContext.request.contextPath}/js/menu/products.js"></script>
         <script type="text/javascript">
 
         <%@include file="/js/main/main.js"%>
-<%--        <%@include file="/js/menu/menu-tabs.js"%>--%>
-<%--        <%@include file="/js/menu/products.js"%>--%>
         window.onload = function () {
-            showCards();
+            showCards("${pageContext.request.contextPath}/cake");
         };
     </script>
 </head>

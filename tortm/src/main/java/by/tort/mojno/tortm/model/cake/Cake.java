@@ -16,21 +16,21 @@ import java.util.List;
 public class Cake extends BaseEntityForSale {
 
     @ManyToMany
-    @JoinTable(name = "def_cream_pid",
+    @JoinTable(name = "cream_cake",
             joinColumns = {@JoinColumn(name = "cream_pid", referencedColumnName = "pid")},
             inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Cream> creams = new ArrayList<>();
 
 
     @ManyToMany
-    @JoinTable(name = "def_filling_pid",
+    @JoinTable(name = "filling_cake",
             joinColumns = {@JoinColumn(name = "filling_pid", referencedColumnName = "pid")},
             inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Filling> fillings = new ArrayList<>();
 
 
     @ManyToMany
-    @JoinTable(name = "def_decor_pid",
+    @JoinTable(name = "decor_cake",
             joinColumns = {@JoinColumn(name = "decor_pid", referencedColumnName = "pid")},
             inverseJoinColumns = {@JoinColumn(name = "cake_pid", referencedColumnName = "pid")})
     private List<Decor> decors = new ArrayList<>();
