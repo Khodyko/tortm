@@ -33,6 +33,7 @@
 
 ### **Для запуска из докера:**
 -Установите java 21
+
 -В application.properties установите значение:
 * это закомментируйте
 * #spring.datasource.url= jdbc:postgresql://localhost:5432/postgres 
