@@ -32,13 +32,15 @@
 
 
 ### **Для запуска из докера:**
+-Установите java 21.
 В application.properties установите значение:
 * это закомментируйте
 * #spring.datasource.url= jdbc:postgresql://localhost:5432/postgres 
 * это раскомментируйте
 * datasource.url= jdbc:postgresql://localhost:15432/postgres
+-Соберите проект командой mvn clean install
 
-Из корня проекта (там где docker-compose) запустите команду:
+-Из корня проекта (там где docker-compose) запустите команду:
 docker-compose up
 
 
